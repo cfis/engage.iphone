@@ -44,7 +44,7 @@
  **/
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 
 @interface NSString (NSString_URL_HANDLING)
 - (BOOL)isWellFormedAbsoluteUrl;
