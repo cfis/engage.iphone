@@ -34,17 +34,6 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef CORDOVA_FRAMEWORK
-#import <Cordova/JSONKit.h>
-#else
-#ifdef PHONEGAP_FRAMEWORK
-#import <PhoneGap/JSONKit.h>
-#else
-#import "JSONKit.h"
-#endif
-#endif
-
-#import "SFHFKeychainUtils.h"
 #import "JRConnectionManager.h"
 #import "JRActivityObject.h"
 

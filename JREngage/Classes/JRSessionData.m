@@ -42,6 +42,18 @@
 
 #import "JRSessionData.h"
 
+#ifdef CORDOVA_FRAMEWORK
+#import <Cordova/JSONKit.h>
+#else
+#ifdef PHONEGAP_FRAMEWORK
+#import <PhoneGap/JSONKit.h>
+#else
+#import "JSONKit.h"
+#endif
+#endif
+
+#import "SFHFKeychainUtils.h"
+
 #pragma mark server_urls
 //#define ENGAGE_STAGING_SERVER
 //#define ENGAGE_TESTING_SERVER
