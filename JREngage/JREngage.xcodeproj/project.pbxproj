@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9F088BDF126684EF008AD40D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F088BDE126684EF008AD40D /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9F5F5A6E14686B5900158A87 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F5F5A6C14686B5900158A87 /* JSONKit.h */; };
-		9F5F5A6F14686B5900158A87 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F5A6D14686B5900158A87 /* JSONKit.m */; };
 		9F608B3A143F7E98002F4439 /* JRPreviewLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F608B38143F7E98002F4439 /* JRPreviewLabel.h */; };
 		9F608B3B143F7E98002F4439 /* JRPreviewLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F608B39143F7E98002F4439 /* JRPreviewLabel.m */; };
 		9F7BC0111468888C0068BD40 /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F7BC00F1468888C0068BD40 /* SFHFKeychainUtils.h */; };
@@ -243,7 +242,6 @@
 		0867D691FE84028FC02AAC07 /* JREngage */ = {
 			isa = PBXGroup;
 			children = (
-				8B11B13515A1840700CDD72A /* UIKit.framework */,
 				08FB77AEFE84172EC02AAC07 /* JREngage */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -255,6 +253,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B11B13515A1840700CDD72A /* UIKit.framework */,
 				9F088BDE126684EF008AD40D /* MessageUI.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
@@ -676,7 +675,6 @@
 				9FED5143124020C2004684F2 /* JRWebViewController.m in Sources */,
 				9F96D61012EA0462002D06B4 /* JREngage+CustomInterface.m in Sources */,
 				9F608B3B143F7E98002F4439 /* JRPreviewLabel.m in Sources */,
-				9F5F5A6F14686B5900158A87 /* JSONKit.m in Sources */,
 				9F7BC0121468888C0068BD40 /* SFHFKeychainUtils.m in Sources */,
 				9FF043BD14D875F30053691A /* JREngagePhonegapPlugin.m in Sources */,
 			);
@@ -723,27 +721,107 @@
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		1DEB922408733DC00010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		8B11B15815A18CC600CDD72A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Distribution;
+		};
+		8B11B15915A18CC600CDD72A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JREngage.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JREngage_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JREngage;
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		8B11B15A15A18CCB00CDD72A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Test;
+		};
+		8B11B15B15A18CCB00CDD72A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/JREngage.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JREngage_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = JREngage;
+				SDKROOT = iphoneos;
+			};
+			name = Test;
 		};
 /* End XCBuildConfiguration section */
 
@@ -752,6 +830,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB921F08733DC00010E9CD /* Debug */,
+				8B11B15B15A18CCB00CDD72A /* Test */,
+				8B11B15915A18CC600CDD72A /* Distribution */,
 				1DEB922008733DC00010E9CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -761,6 +841,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
+				8B11B15A15A18CCB00CDD72A /* Test */,
+				8B11B15815A18CC600CDD72A /* Distribution */,
 				1DEB922408733DC00010E9CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
