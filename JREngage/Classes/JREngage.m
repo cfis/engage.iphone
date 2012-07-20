@@ -57,7 +57,9 @@ static JREngage* singletonJREngage = nil;
 - (id)reconfigureWithAppID:(NSString*)appId andTokenUrl:(NSString*)tokenUrl delegate:(id<JREngageDelegate>)delegate
 {
     [_delegates removeAllObjects];
-    [_delegates addObject:delegate];
+    
+    if (delegate)
+        [_delegates addObject:delegate];
 
     [_sessionData reconfigureWithAppId:appId tokenUrl:tokenUrl];
 
