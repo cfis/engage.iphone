@@ -33,8 +33,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #import <UIKit/UIKit.h>
-static NSString * const appId = @"appcfamhnpkagijaeinl";
-static NSString * const tokenUrl = @"http://jrauthenticate.appspot.com/login";
+
 @interface Quick_PublishAppDelegate : NSObject <UIApplicationDelegate> {
 
     UIWindow *window;

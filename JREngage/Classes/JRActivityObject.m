@@ -44,6 +44,7 @@
 
 
 @implementation NSString (NSString_URL_HANDLING)
+
 - (BOOL)isWellFormedAbsoluteUrl
 {
     NSURL *url = [NSURL URLWithString:self];

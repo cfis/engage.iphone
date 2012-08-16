@@ -63,7 +63,8 @@
     return self;
 }
 
-- (void)setUserAgentDefault:(NSString *)userAgent {
+- (void)setUserAgentDefault:(NSString *)userAgent
+{
     if (userAgent)
     {
         NSDictionary *uAdefault = [[NSDictionary alloc] initWithObjectsAndKeys:userAgent, @"UserAgent", nil];
@@ -159,6 +160,9 @@
 
     [self webViewWithUrl:[sessionData startUrlForCurrentProvider]];
     [myWebView becomeFirstResponder];
+    //DLog(@"scalePagesToFit: %i", myWebView.scalesPageToFit);
+    // Defaults to YES on iPhone, iPad
+    //myWebView.scalesPageToFit = YES;
 
     [infoBar fadeIn];
 }
@@ -371,8 +375,8 @@
 {
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) return;
 
-    if (!([sessionData.currentProvider.name isEqualToString:@"google"]) ||
-          [sessionData.currentProvider.name isEqualToString:@"yahoo"]) return;
+    if (!([sessionData.currentProvider.name isEqualToString:@"google"] ||
+          [sessionData.currentProvider.name isEqualToString:@"yahoo"])) return;
 
     /* This fixes the UIWebView's display of IDP sign-in pages to make them fit the iPhone sized dialog on the iPad.
      * It's broken up into separate JS injections in case one statement fails (e.g. there is no document element),
@@ -498,7 +502,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     DLog(@"");
-    
+
     if ([sessionData.currentProvider.name isEqualToString:@"yahoo"])
         [self setUserAgentDefault:self.originalUserAgent];
 
