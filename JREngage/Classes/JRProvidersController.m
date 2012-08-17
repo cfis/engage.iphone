@@ -158,7 +158,7 @@
 // /* We need to figure out if the user canceled authentication by hitting the back button or the cancel button,
 //    or if it stopped because it failed or completed successfully on its own.  Assume that the user did hit the
 //    back button until told otherwise. */
-//  userHitTheBackButton = YES;
+    userHitTheBackButton = YES;
 
  /* Load the custom background view, if there is one. */
     if ([customInterface objectForKey:kJRAuthenticationBackgroundImageView])
@@ -406,7 +406,7 @@ Please try again later."
 
     DLog(@"cell for %@ was selected", provider);
 
-//    userHitTheBackButton = NO;
+   // userHitTheBackButton = NO;
 
     // TODO: Change me (comment)!
  /* If the selected provider requires input from the user, go to the user landing view.
@@ -444,8 +444,9 @@ Please try again later."
     DLog(@"");
     [super viewDidDisappear:animated];
 
-//    if (hidesCancelButton && userHitTheBackButton)
-//        [sessionData triggerAuthenticationDidCancel];
+    // CFIS - put this back in
+    if (hidesCancelButton && userHitTheBackButton)
+        [sessionData triggerAuthenticationDidCancel];
 }
 
 - (void)viewDidUnload
