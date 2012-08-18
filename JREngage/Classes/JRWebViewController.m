@@ -526,6 +526,7 @@
     [customInterface release];
     [myBackgroundView release];
     [originalUserAgent release];
+    myWebView.delegate = nil;
     [myWebView release];
     [infoBar release];
 
